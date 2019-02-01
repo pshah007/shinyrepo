@@ -4,7 +4,7 @@ library(shinydashboard)
 shinyUI(
   dashboardPage(
     
-    dashboardHeader(title="This is the header",
+    dashboardHeader(title = span(tagList(icon("dashboard"),"Dashboard")),
                     
           dropdownMenu(
             type = "message",
@@ -47,13 +47,15 @@ shinyUI(
       tabItems(
         tabItem(tabName = "dashboard",
                 fluidRow(
-                  box(title="Histogram of Faithful",status = "primary",solidHeader = TRUE,background = "aqua",plotOutput("histogram")),
-                  box(title = "Controls for Dashboard", status = "warning", solidHeader = T,
+                  tabBox(
+                  tabPanel(title="Histogram of Faithful",status = "primary",solidHeader = TRUE,background = "aqua",plotOutput("histogram")),
+                  tabPanel(title = "Controls for Dashboard", status = "warning", solidHeader = T,
                       "Use these controls to fine tune your dashboard",br(),"Do not use alot of contorls",
                       sliderInput("bins","Number of Breaks",1,100,50),
                       textInput("text_input","Search Oppurtunities",value="123456")
                       
                       )
+                  )
                   )),
       tabItem(tabName = "finance",
               h1("Finance Dashboard")
