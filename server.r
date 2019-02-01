@@ -10,7 +10,17 @@ shinyServer(function(input,output)
            
            )
     })
-    
+    output$approvedSales <- renderInfoBox(
+      {
+        infoBox("Approval Sales","10,000,000",icon=icon("bar-chart-o"))
+      }
+      
+    )
+    output$itemRequested <- renderValueBox(
+      {
+        valueBox(15*300,"Item Requested By Employees",icon=icon("fire"),color="yellow")
+      })
+
     
   # output$msgOutput <- renderMenu({
   #   msgs <- apply(read.csv("messages.csv"),1,function(row){

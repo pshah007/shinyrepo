@@ -1,2 +1,2 @@
-mystring <- "Hello"
-print(mystring)
+library(rsconnect)
+rsconnect::deployApp()
